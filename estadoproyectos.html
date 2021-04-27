@@ -1,0 +1,174 @@
+	<!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
+		<link rel="shortcut icon" href="img/elements/fav.png">
+		
+		<meta name="author" content="CodePixar">
+		
+		<meta name="description" content="">
+		
+		<meta name="keywords" content="">
+		
+		<meta charset="UTF-8">
+		
+		<title>SIAC</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+			
+			<link rel="stylesheet" href="css/linearicons.css">
+			<link rel="stylesheet" href="css/owl.carousel.css">
+			<link rel="stylesheet" href="css/font-awesome.min.css">
+			<link rel="stylesheet" href="css/nice-select.css">			
+			<link rel="stylesheet" href="css/magnific-popup.css">
+			<link rel="stylesheet" href="css/bootstrap.css">
+			<link rel="stylesheet" href="css/main.css">
+		</head>
+		<body>
+			
+			<section class="generic-banner relative">
+			
+				<header class="default-header">
+					<nav class="navbar navbar-expand-lg  navbar-light">
+						<div class="container">
+							  <a class="navbar-brand" href="index.html">
+							  	<img src="img/logoutpl.png"width=25em alt="">
+							  </a>
+							  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							    <span class="text-white lnr lnr-menu"></span>
+							  </button>
+
+							  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+							    <ul class="navbar-nav">
+									<li><a href="index.html#home">Inicio</a></li>
+									<li><a href="index.html#about">Objetivos Generales</a></li>									
+									<li><a href="index.html#faq">Estadisticas</a></li>
+									<li><a href="index.html#contact">Acerca de nosotros</a></li>
+									
+								    <li class="dropdown">
+								      <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+								        Paginas
+								      </a>
+								      <div class="dropdown-menu">
+								        <a class="dropdown-item" href="listadodocentes.html">Listado de docentes</a>
+								        <a class="dropdown-item" href="gruposinvestigacion.html">Grupos de investigacion</a>
+								        <a class="dropdown-item" href="estadoproyectos.html">Estado de proyectos</a>
+								      </div>
+								    </li>
+							    </ul>
+							  </div>						
+						</div>
+					</nav>
+				</header>
+							
+				<div class="container">
+					<div class="row height align-items-center justify-content-center">
+						<div class="col-lg-10">
+							<div class="generic-banner-content">
+								<h2 class="text-white">Estados de Proyectos <br>SIAC</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>		
+			
+			
+			<div class="whole-wrap">
+				<div class="container">
+					<div class="section-top-border">
+						<div class="row">
+							<div class="col-md-3">
+								<img src="img/grupo.jpg" alt="" class="img-fluid">
+							</div>
+							<div class="col-md-9 mt-sm-20">
+								<div id="total">
+									<table id="datos">
+										<thead>
+											<th>Nombres</th>
+											<th>Estado del Proyecto</th>
+										</thead>
+										<tbody></tbody>
+									</table>
+									
+								</div>
+
+								<script
+							  		src="https://code.jquery.com/jquery-3.3.1.min.js"
+							  		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+							  		crossorigin="anonymous">
+								</script>
+							  	<script>
+								  	$(function() {
+								    	console.log( "Libreria cargada correctamente" );
+								    	
+									});
+									
+									$.ajax({
+									    url: "https://sica.utpl.edu.ec/api/groups",
+									    
+									    jsonp: "callback",
+									    
+									    dataType: "jsonp",
+									    
+									    data: {
+									    	'token':'4g570LuKrVnHByHa'
+									        
+									    },
+									   
+									    success: function( response ) {
+									        console.log( response ); 
+									        var data = response.data;
+									        
+									        for (var i = 0; i < data.length; i++) {
+									        	var conjunto = data[i];
+									        	var tr = '<tr>';
+									        	tr += '<td>'+conjunto.name+'</td>';
+									        	tr += '<td>'+conjunto.status+'</td>';
+									        	tr += '</td>';
+									        	tr += '</tr>';
+									        	$(tr).appendTo('table#datos');
+									        }
+									        
+
+									    }
+									});
+
+														</script>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+
+		<footer class="footer-area section-gap">
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-5 col-md-6 col-sm-6">
+									<div class="single-footer-widget">
+										<h6>Acerca de nosotros</h6>
+										<p>
+											La UTPL es una institución autónoma, con finalidad social y pública, que imparte enseñanza, fomentando la investigación con libertad científica-administrativa y la participación en los planes de desarrollo del país, otorgando, reconociendo y revalidando grados académicos y títulos profesionales; y en general, realizando actividades propias para la consecución de sus fines.
+										
+									</div>
+								</div>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script src="js/vendor/jquery-2.2.4.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+		<script src="js/vendor/bootstrap.min.js"></script>
+		<script src="js/owl.carousel.min.js"></script>
+		<script src="js/jquery.sticky.js"></script>
+		<script src="js/jquery.nice-select.min.js"></script>			
+		<script src="js/parallax.min.js"></script>
+		<script src="js/jquery.magnific-popup.min.js"></script>
+		<script src="js/main.js"></script>	
+	</body>
+</html>
